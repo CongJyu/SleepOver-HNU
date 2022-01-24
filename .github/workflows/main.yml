@@ -1,0 +1,37 @@
+name: SleepOverHNU
+
+on:
+  release:
+    types: [published]
+  push:
+    tags:
+    - 'v*'
+  #  branches:
+  #    - main
+  schedule:
+    - cron: "*/20 17,22 * * *"
+  watch:
+    types: [started]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id  # add start
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Set up Python #install python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install requests # install requests
+      run: |
+        pip install requests
+    - name: clockin # clock in
+      env:
+        usr: ${{ secrets.USER }}
+        pwd: ${{ secrets.PASSWORD }}
+        RealAddress: ${{ secrets.REALADDRESS }}
+        RealProvince_City_County: ${{ secrets.REALPROVINCE_CITY_COUNTY }}
+      run:
+        python main.py $usr $pwd $sckey $RealAddress $RealProvince_City_County
