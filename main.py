@@ -71,7 +71,8 @@ def clock_in():
             "VerCode": result
         }
         session = requests.Session()
-        response = session.post("https://fangkong.hnu.edu.cn/api/v1/account/login", headers=headers_2, data=json.dumps(data))
+        response = session.post("https://fangkong.hnu.edu.cn/api/v1/account/login", headers=headers_2,
+                                data=json.dumps(data))
         in_campus = response.json()["data"]["IsShowBackCampus"]
         if response.json()["Code"] != 0:
             print("验证码错误")
@@ -123,15 +124,18 @@ def clock_in():
             }
             if in_campus:
                 print("在校")
-                response = session.post("https://fangkong.hnu.edu.cn/api/v1/clockinlog/add", headers=headers_2, data=json.dumps(data2))
+                response = session.post("https://fangkong.hnu.edu.cn/api/v1/clockinlog/add", headers=headers_2,
+                                        data=json.dumps(data2))
             else:
                 print("离校")
-                response = session.post("https://fangkong.hnu.edu.cn/api/v1/clockinlog/add", headers=headers_2, data=json.dumps(data1))
+                response = session.post("https://fangkong.hnu.edu.cn/api/v1/clockinlog/add", headers=headers_2,
+                                        data=json.dumps(data1))
             msg = response.json()["msg"]
             print(msg)
     except:
         print("Error")
         clock_in()
+
 
 if __name__ == "__main__":
     clock_in()
