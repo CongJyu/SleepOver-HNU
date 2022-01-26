@@ -1,4 +1,4 @@
-name: SleepOverHNU
+name: SleepOver-HNU
 
 on:
   release:
@@ -7,7 +7,7 @@ on:
     tags:
     - 'v*'
   #  branches:
-  #    - main
+  #    - master
   schedule:
     - cron: "*/20 17,22 * * *"
   watch:
@@ -16,22 +16,22 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id  # add start
+    if: github.event.repository.owner.id == github.event.sender.id  # 自己点的 start
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: Set up Python #install python
+    - name: Set up Python #安装python
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
-    - name: Install requests # install requests
+    - name: Install requests #安装requests
       run: |
         pip install requests
-    - name: clockin # clock in
+    - name: ClockIn #打卡
       env:
         usr: ${{ secrets.USER }}
         pwd: ${{ secrets.PASSWORD }}
         RealAddress: ${{ secrets.REALADDRESS }}
         RealProvince_City_County: ${{ secrets.REALPROVINCE_CITY_COUNTY }}
       run:
-        python main.py $usr $pwd $sckey $RealAddress $RealProvince_City_County
+        python AutoClockIn.py $usr $pwd $sckey $RealAddress $RealProvince_City_County
