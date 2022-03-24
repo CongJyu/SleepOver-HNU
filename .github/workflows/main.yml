@@ -33,5 +33,6 @@ jobs:
         pwd: ${{ secrets.PASSWORD }}
         RealAddress: ${{ secrets.REALADDRESS }}
         RealProvince_City_County: ${{ secrets.REALPROVINCE_CITY_COUNTY }}
+        QRCodeColor: ${{ secrets.QRCOdECOLOR }}
       run:
-        python AutoClockIn.py $usr $pwd $sckey $RealAddress $RealProvince_City_County
+        python AutoClockIn.py $usr $pwd $sckey $RealAddress $RealProvince_City_County $QRCodeColor
