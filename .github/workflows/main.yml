@@ -6,8 +6,8 @@ on:
   push:
     tags:
     - 'v*'
-  #  branches:
-  #    - master
+  # branches:
+  #   - master
   schedule:
     - cron: "*/20 17,22 * * *"
   watch:
@@ -20,14 +20,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: Set up Python #安装python
+    - name: Set up Python # 安装python
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
-    - name: Install requests #安装requests
+    - name: Install requests # 安装requests
       run: |
         pip install requests
-    - name: ClockIn #打卡
+    - name: ClockIn # 打卡
       env:
         usr: ${{ secrets.USER }}
         pwd: ${{ secrets.PASSWORD }}
