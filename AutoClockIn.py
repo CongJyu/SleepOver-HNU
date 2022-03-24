@@ -47,7 +47,6 @@ QRCodeColor = os.getenv("QRCodeColor")
 
 
 # step 1: 获取验证码Token及图片
-
 def ClockIn():
     try:
         token_json = requests.get("https://fangkong.hnu.edu.cn/api/v1/account/getimgvcode", headers=headers_1)
