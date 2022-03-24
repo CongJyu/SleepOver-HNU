@@ -5,7 +5,7 @@ import os
 
 headers_1 = {
     "Cookie": "arccount62298=c; arccount62019=c",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.66"
+    "User-Agent": "MQQBrowser/6.2 MicroMessenger/6.6.7.1321(0x26060739) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.66"
 }  # 验证码token爬取
 
 headers_2 = {
@@ -20,12 +20,12 @@ headers_2 = {
     "Sec-Fetch-Dest": "empty",
     "Sec-Fetch-Mode": "cors",
     "Sec-Fetch-Site": "same-origin",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75"
+    "User-Agent": "MQQBrowser/6.2 MicroMessenger/6.6.7.1321(0x26060739) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75"
 }  # 登录及打卡
 
 headers_3 = {
     'Host': 'cloud.baidu.com',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36 Edg/89.0.774.76',
+    'User-Agent': 'MQQBrowser/6.2 MicroMessenger/6.6.7.1321(0x26060739) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36 Edg/89.0.774.76',
     'Accept': '*/*',
     'Origin': 'https://cloud.baidu.com',
     'Sec-Fetch-Site': 'same-origin',
@@ -40,9 +40,10 @@ usr = os.getenv("usr")
 pwd = os.getenv("pwd")
 RealAddress = os.getenv("RealAddress")
 l = os.getenv("RealProvince_City_County").split(",")
-RealCity = l[1]
 RealCounty = l[2]
+RealCity = l[1]
 RealProvince = l[0]
+QRCodeColor = os.getenv("QRCodeColor")
 
 
 # step 1: 获取验证码Token及图片
@@ -96,7 +97,6 @@ def ClockIn():
             ClockIn()
         else:
             # step 3: 模拟打卡操作
-
             data1 = {  # 假期版本
                 # "Temperature":null,
                 "RealProvince": RealProvince,
@@ -141,6 +141,7 @@ def ClockIn():
                 "RealCity": RealCity,
                 "RealCounty": RealCounty,
                 "RealProvince": RealProvince,
+                "QRCodeColor": QRCodeColor,
                 "tripinfolist": []
             }
 
