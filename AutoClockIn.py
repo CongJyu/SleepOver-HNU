@@ -24,15 +24,15 @@ headers_2 = {
 }  # 登录及打卡
 
 headers_3 = {
-    'Host': 'cloud.baidu.com',
-    'User-Agent': 'MQQBrowser/6.2 MicroMessenger/6.6.7.1321(0x26060739) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36 Edg/89.0.774.76',
-    'Accept': '*/*',
-    'Origin': 'https://cloud.baidu.com',
-    'Sec-Fetch-Site': 'same-origin',
-    'Sec-Fetch-Mode': 'cors',
-    'Sec-Fetch-Dest': 'empty',
-    'Referer': 'https://cloud.baidu.com/product/ocr/general',
-    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
+    "Host": "cloud.baidu.com",
+    "User-Agent": "MQQBrowser/6.2 MicroMessenger/6.6.7.1321(0x26060739) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36 Edg/89.0.774.76",
+    "Accept": "*/*",
+    "Origin": "https://cloud.baidu.com",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Dest": "empty",
+    "Referer": "https://cloud.baidu.com/product/ocr/general",
+    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
 }  # 百度OCR识别验证码
 
 # 获取变量
@@ -66,17 +66,17 @@ def ClockIn():
 
         # 解析验证码
 
-        with open("img.jpg", 'rb') as f:
+        with open("img.jpg", "rb") as f:
             img = base64.b64encode(f.read())
         data = {
-            'image': 'data:image/jpeg;base64,' + str(img)[2:-1],
-            'image_url': '',
-            'type': 'https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic',
-            'detect_direction': 'false'
+            "image": "data:image/jpeg;base64," + str(img)[2:-1],
+            "image_url": "",
+            "type": "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic",
+            "detect_direction": "false"
         }
 
-        response = requests.post('https://cloud.baidu.com/aidemo', headers=headers_3, data=data)
-        result = response.json()['data']['words_result'][0]['words']
+        response = requests.post("https://cloud.baidu.com/aidemo", headers=headers_3, data=data)
+        result = response.json()["data"]["words_result"][0]["words"]
 
         # step 2: 模拟登录操作
         data = {
@@ -146,11 +146,11 @@ def ClockIn():
             }
 
             if (InCampus):
-                print('在校')
+                print("在校")
                 response = session.post("https://fangkong.hnu.edu.cn/api/v1/clockinlog/add", headers=headers_2,
                                         data=json.dumps(data2))
             else:
-                print('离校')
+                print("离校")
                 response = session.post("https://fangkong.hnu.edu.cn/api/v1/clockinlog/add", headers=headers_2,
                                         data=json.dumps(data1))
 
@@ -161,5 +161,5 @@ def ClockIn():
         ClockIn()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ClockIn()
