@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8626f02-3832-4407-9f6f-ad2d4933a7cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/img/Screenshot 2022-12-14 at 10.36.02 PM.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="c8626f02-3832-4407-9f6f-ad2d4933a7cb" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,8 +41,16 @@
       <option name="presentableId" value="Default" />
       <updated>1671099548552</updated>
       <workItem from="1671099550278" duration="52000" />
-      <workItem from="1671099615388" duration="310000" />
+      <workItem from="1671099615388" duration="323000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1671099936643</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671099936643</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -53,5 +58,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
